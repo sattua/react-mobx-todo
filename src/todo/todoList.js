@@ -6,23 +6,12 @@ import Todo from './todo';
 @observer
 class TodoList extends Component {
     
-    getCustomTodos(){
-        let todosTemp = [];
-        var index = 0;
-        
-        this.props.observer.filteredTodos.forEach(function (value) {
-            todosTemp.push(<Todo key={index++} label={value} />);
-        });
-        
-        return todosTemp;
-    } 
-    
     render() {
         
         return (
             <div className="TodoList">
                 <ul>
-                    {this.getCustomTodos()}
+                    {this.props.observer.filteredTodos}
                 </ul>
             </div>
         );

@@ -1,23 +1,28 @@
 import {computed, observable} from 'mobx';
+import React, { Component } from 'react';
 
+import Todo from './todo.js';
             
 class TodoObserver {
-    @observable todos = ['Trabajar', 'Dormir', 'Pagar Luz'];
+    @observable todos = [];
     @observable filterKey = '';
     
-    set createTodo(value){
-        this.todos.push(value);
+    set createTodo(todo){
+        this.todos.push(<Todo key={todo.key} label={todo.label} />);
     }
     
     @computed get filteredTodos(){
         if(this.filterKey === ''){
             return this.todos;
         }
+        
         let global = this;
-        var doFilter = function filterByID(value) {
+        var doFilter = function (todo) {
+            debugger;
             var matchesFilter = new RegExp(global.filterKey.toLowerCase());
-            return matchesFilter.test(value.toLowerCase()); 
-        }
+            
+            return matchesFilter.test( todo.props.label.toLowerCase() ); 
+        }; 
         
         return this.todos.filter(doFilter);
     }
