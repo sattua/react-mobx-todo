@@ -17,17 +17,11 @@ let Todo = React.createClass({
      */
     selectionToggle: function() {
         if(this.state.isSelected){
+            this.props.isSelected = false;
             this.setState( { isSelected: false} );
         }else{
+            this.props.isSelected = true;
             this.setState( { isSelected: true } );
-        }
-    },
-    
-    getSelectionState: function(){
-        if(this.state.isSelected){
-            return "Done!!!";
-        }else{
-            return "Pending";
         }
     },
     
@@ -38,7 +32,7 @@ let Todo = React.createClass({
                     <table>
                         <tbody>
                         <tr> 
-                            <td><label>{this.props.label}, is {this.getSelectionState()} </label> </td>
+                            <td><label>{this.props.label}, is {this.props.isSelected} </label> </td>
                             <td> <input type="checkbox" onClick={ this.selectionToggle } /> </td>
                         </tr>
                         </tbody>

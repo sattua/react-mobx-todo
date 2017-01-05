@@ -8,7 +8,7 @@ class TodoObserver {
     @observable filterKey = '';
     
     set createTodo(todo){
-        this.todos.push(<Todo key={todo.key} label={todo.label} />);
+        this.todos.push(<Todo key={todo.key} label={todo.label} isSelected="true" />);
     }
     
     @computed get filteredTodos(){
@@ -18,7 +18,6 @@ class TodoObserver {
         
         let global = this;
         var doFilter = function (todo) {
-            debugger;
             var matchesFilter = new RegExp(global.filterKey.toLowerCase());
             
             return matchesFilter.test( todo.props.label.toLowerCase() ); 

@@ -4,7 +4,7 @@ import {observer} from 'mobx-react';
 @observer
 class TodoForm extends Component {
     createTodo(e){
-        this.props.observer.createTodo = { 
+        this.props.observer.createTodo = {
             key: Date.now(), 
             label: this.props.observer.filterKey
         };

@@ -12,7 +12,9 @@ class TodoWrapper extends Component {
         return (
             <div className="TodoWrapper">
                 <TodoForm observer={TodoObserver} />
-                <TodoList observer={TodoObserver} />
+                <TodoList observer={TodoObserver} filterResults="0" />
+                <h2>Pending</h2>
+                <TodoList observer={TodoObserver} filterResults="1" />
             </div>
         );
     }
