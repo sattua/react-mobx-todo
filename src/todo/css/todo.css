@@ -1,0 +1,11 @@
+.Todo .todo-box{
+    background-color: gray;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.Todo .todo-box table{
+    width: 100%;
+}
+.Todo .todo-box table td{
+    width: 50%;
+}
